@@ -3,86 +3,45 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>2 Column Layout &mdash; Right Menu with Header &amp; Footer</title>
+		<title>pp.0</title>
 		<link rel="Stylesheet" type="text/css" href="style.css">
-		<style type="text/css">	
-		</style>
-		
-		<script type="text/javascript">
-		</script>	
-	
+		<link rel="Stylesheet" type="text/css" href="gallery.css">
+		<style type="text/css"></style>
+		<script type="text/javascript"></script>	
 	</head>
-	
 	<body>		
-
 		<header>
-			<div class="innertube">
+<!--	<div class="innertube">
 				<h1>Site name</h1>
-			</div>
+			</div> -->
+		<ul class="topnav" id="myTopnav">
+			<li class="active"><a href="index.php">Home</a></li>
+			<li><a href="photoBooth.php">Photo Booth</a></li>
+			<li style="float:right"><a href="registerForm.php">Register</a></li>
+  			<li style="float:right"><a href="loginForm.php">Login</a></li>
+  			<li class="icon">
+  		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+  			</li>
+		</ul>
 		</header>
-		
 		<div id="wrapper">
-		
-			<main>
-				<div id="content">
-					<div class="innertube">
+			<main style="width:100%">
+
 						<h1>Gallery</h1>
-						<div class="user_login">
-    <form>
-        <label>Email / Username</label> <input type="text"><br>
-        <label>Password</label> <input type="password"><br>
-
-        <div class="checkbox">
-            <input id="remember" type="checkbox"> <label for=
-            "remember">Remember me on this computer</label>
-        </div>
-
-        <div class="action_btns">
-            <div class="one_half">
-                <a class="btn back_btn" href="#">Back</a>
-            </div>
-
-            <div class="one_half last">
-                <a class="btn btn_red" href="#">Login</a>
-            </div>
-        </div>
-    </form>
-    
-    <a class="forgot_password" href="#">Forgot password?</a>
-</div>
-					</div>
+							<div class="container">
+								<ul class=hoverbox>
+									<li>
+										<img src="images/img1.jpeg" alt="description" class="preview" /></a>
+									</li>
+									<li>
+										<img src="images/img2.png" alt="description" class="preview" /></a>
+									</li>
+									<li>
+										<img src="images/img2.png" alt="description" class="preview" /></a>
+									</li>
+								</ul>
 				</div>
-			</main>
-			
-			<nav>
-				<div class="innertube">
-					<h3>Right heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-					<h3>Right heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-					<h3>Right heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-				</div>
-			</nav>
-		
+			</main>	
 		</div>
 		
 		<footer>
