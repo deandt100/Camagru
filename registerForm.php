@@ -16,7 +16,7 @@
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 </ul>
-<form name="register" method="post" action="src/registerUser.php">
+<form id="regform" name="register" method="POST" action="src/registerUser.php">
   <div class="container">
     <label><b>Username</b></label>
     <input id="username" type="text" placeholder="Enter Username between 6 and 24 charactes long" name="uname" required>
@@ -35,11 +35,11 @@
     <label class="badInput" id="message"><b></b></label>
     <button onclick ="verifyDetails()" type="button">Register</button>
   </div>
-
+</form>
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
   </div>
   <script type="text/javascript" src="src/registerUser.js"></script>
 </body>
-</form>
+
 </html>

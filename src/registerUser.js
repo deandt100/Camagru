@@ -1,14 +1,7 @@
 function  submitRegForm()
 {
-   var	formdata = new FormData('register');
-   var ajax = new XMLHttpRequest();
-  // ajax.addEventListener("load", completeHandler, false);
-  // ajax.addEventListener("error", errorHandler, false);
-  // ajax.addEventListener("abort", abortHandler, false);
-   ajax.open("POST", "src/registerUser.php");
-   console.log("formdata", formdata);
-   ajax.send(formdata);
-   window.location = "src/registerUser.php";
+  var form = document.getElementById("regform");
+  form.submit();
 }
  
  function verifyDetails()
