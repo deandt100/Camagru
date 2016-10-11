@@ -10,26 +10,26 @@ function userUpload()
 
 function uploadFile(file, key, name)
 {
-    //var file = _("image1").files[0];
+	//var file = _("image1").files[0];
 	var	formdata = new FormData('image_upload_form');
 	if (name)
-    	formdata.append(key, file, name);
+		formdata.append(key, file, name);
 	else
 		formdata.append(key, file);
-    var ajax = new XMLHttpRequest();
-    ajax.upload.addEventListener("progress", progressHandler, false);
-    ajax.addEventListener("load", completeHandler, false);
-    ajax.addEventListener("error", errorHandler, false);
-    ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "src/upload.php");
-  	ajax.send(formdata);
+	var ajax = new XMLHttpRequest();
+	ajax.upload.addEventListener("progress", progressHandler, false);
+	ajax.addEventListener("load", completeHandler, false);
+	ajax.addEventListener("error", errorHandler, false);
+	ajax.addEventListener("abort", abortHandler, false);
+	ajax.open("POST", "src/upload.php");
+	ajax.send(formdata);
 }
 
 function progressHandler(event)
 {
    _("loaded_n_total").innerHTML =
-     "Uploaded "+event.loaded+" bytes of "+event.total;
-      var percent = (event.loaded / event.total) * 100;
+	 "Uploaded "+event.loaded+" bytes of "+event.total;
+	  var percent = (event.loaded / event.total) * 100;
    _("progressBar").value = Math.round(percent);
    _("status").innerHTML = Math.round(percent)+"% uploaded... please wait";
  }

@@ -8,6 +8,7 @@ function  submitRegForm()
    ajax.open("POST", "src/registerUser.php");
    console.log("formdata", formdata);
    ajax.send(formdata);
+   window.location = "src/registerUser.php";
 }
  
  function verifyDetails()
