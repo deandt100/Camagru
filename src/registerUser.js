@@ -1,3 +1,15 @@
+function  submitRegForm()
+{
+   var	formdata = new FormData('register');
+   var ajax = new XMLHttpRequest();
+  // ajax.addEventListener("load", completeHandler, false);
+  // ajax.addEventListener("error", errorHandler, false);
+  // ajax.addEventListener("abort", abortHandler, false);
+   ajax.open("POST", "src/registerUser.php");
+   console.log("formdata", formdata);
+   ajax.send(formdata);
+}
+ 
  function verifyDetails()
   {
     //usermname
@@ -9,7 +21,6 @@
         username.style.borderColor = "#c55";
         username.focus();
         return;
-        err = true;
       }
       else
         username.style.borderColor = "#5c5";
@@ -31,7 +42,6 @@
         document.getElementById("message").innerHTML = 'Please provide a valid email address.';
         email.focus();
         email.style.borderColor = "#c55";
-        err = true;
         return;
       }
       else
@@ -75,6 +85,8 @@
       else
         confpasswd.style.borderColor = "#5c5";
       document.getElementById("message").innerHTML = '';
+      console.log("data");
+      submitRegForm();
   }
 
   function checkEmail() 

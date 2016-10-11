@@ -22,7 +22,7 @@ function uploadFile(file, key, name)
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
     ajax.open("POST", "src/upload.php");
-	ajax.send(formdata);
+  	ajax.send(formdata);
 }
 
 function progressHandler(event)

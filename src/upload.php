@@ -16,7 +16,7 @@
 		$type = $_FILES['user']['type'];
 		$size = $_FILES['user']['size'];
 		$err = $_FILES['user']['error'];
-	
+
 		if (empty($name))
 		{
 			echo "ERROR: Please browse for a file before clicking the upload button.";
