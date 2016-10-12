@@ -1,21 +1,23 @@
 <?php
 	function sendMail($username, $email)
 	{
-		// the message
-		$uri = substr($_SERVER["REQUEST_URI"], 0, strpos($_SERVER["REQUEST_URI"]), '/');
-		$link = "<a href=" . $_SERVER["SERVER_NAME"] .":" . $_SERVER["SERVER_PORT"] . $uri . "/src/verify.php" . "?verif= " . hash("whirlpool", $username) . ">Click here to verify</a>";
-		//$headers = "From: noreply@email.com";
-		$msg = "Thank you, " . $username . ", for registering to pp.o!\r\n\r\n" . $link;
-		//$msg = "A mail";
-		// use wordwrap() if lines are longer than 70 characters
+		$uri = substr($_SERVER["REQUEST_URI"], 0, strpos($_SERVER["REQUEST_URI"], '/', 1));
+		$link = '<a href="http://' . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $uri . "/src/verify.php" . "?verif=" . hash("whirlpool", $username) . '">Click here to verify</a>';
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$msg = "<html>
+			<body>
+			<p>Thank you, " . $username . ", for registering to pp.o!<br><br>" .
+			$link . "</p>
+			</body>
+			</html>";
+		echo $link;
 		$msg = wordwrap($msg,70);
-		echo $email;
-		// send email
-		$send = mail(trim($email), "Verification", $msg);
+		$send = mail($email, "Verification", $msg, $headers);
 		if ($send)
 			echo "Mail sent";
 		else
 			echo "Failed";
-		//header("Location: ../index.php");
+		header("Location: ../index.php");
 	}
 ?>

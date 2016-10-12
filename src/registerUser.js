@@ -4,8 +4,8 @@ function  submitRegForm()
   form.submit();
 }
  
- function verifyDetails()
-  {
+function verifyDetails()
+{
     //usermname
     var username = document.getElementById("username");
       if (username.value.length < 6 || username.value.length > 24)
@@ -126,5 +126,4 @@ function  submitRegForm()
     }
     else
        pstring.innerHTML = "";
-
-   }
+}

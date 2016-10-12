@@ -14,7 +14,7 @@
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 </ul>
-<form action="action_page.php">
+<form id="loginForm" name="loginForm" action="src/login.php" method="POST">
  
   <div class="container">
     <label><b>Username</b></label>
@@ -23,7 +23,7 @@
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit">Login</button>
+    <button type="button" onclick="submitLoginForm()">Login</button>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
@@ -31,4 +31,5 @@
     <span class="psw"><a href="#"> Forgot password</a> </span>
   </div>
 </form>
+<script type="text/javascript" src="src/login.js"></script>
 </html>

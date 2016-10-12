@@ -12,8 +12,12 @@
 			$stmt = $pdo->prepare("UPDATE users SET verified='yes' WHERE username=:name");
 			$stmt->bindParam(":name", $row["username"]);
 			$stmt->execute();
-			break;
+			header("Location: ../index.php");
+			$pdo = null;
+			return ;
 		}
 	}
 	$pdo = null;
+	header("Location: ../index.php?error=1");
+	return ;
 ?>
