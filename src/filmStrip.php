@@ -1,11 +1,14 @@
 <?php
-	include "src/imageList.php";
+	include "imageList.php";
 	include "config/connect.php";
 
+	session_start();
+	$user = $_SESSION['logged_on_user'];
 	$pdo = connect();
 	$sql = $pdo->query("USE db_camagru");
 	$stmt = $pdo->prepare("SELECT image_url FROM images 
-							ORDER BY date_created DESC");
+							WHERE user = '" . $user . "'" .
+							"ORDER BY date_created DESC");
 	$stmt->execute();
 	$urls = $stmt->fetchAll(PDO::FETCH_COLUMN);
 	$stmt = $pdo->prepare("SELECT image_id FROM images 
@@ -13,5 +16,5 @@
 	$stmt->execute();
 	$ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
 	$pdo = null;
-	imageList("", $urls, $ids, "preview");
+	imageList("", $urls, $ids, "fs_img");
 ?>

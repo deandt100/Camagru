@@ -19,11 +19,14 @@
 		</header>
 		<div id="wrapper">
 			
-			<nav class="navleft">
+			<nav id="filmstrip" class="navleft" >
 				<div class="innertube">
 				<center>
+					<?php
+						include "src/filmStrip.php";
+					?>
 				</center>
-				</div>
+				</div> 
 			</nav>
 					<div class="video_container">
    						<video autoplay="true" id="videoElement"></video><br>
@@ -38,8 +41,6 @@
 								</form>
 								<br>
 						   </div>
-						   
-							<img id="userImg" src="">
 						<canvas id="canvas" style="display:none;"></canvas>
 						   <div id="upload_status">Click video feed take a snapshot! </div>
 

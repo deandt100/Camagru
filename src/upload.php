@@ -1,5 +1,8 @@
 <?php
 include "addImageDb.php";
+
+
+
 	// Add user auth!
 
 function getImageName()
@@ -39,7 +42,7 @@ function overlayImg($dest, $src)
 	return $dest;
 }
 
-function uploadUserImage($over_id)
+function uploadUserImage($over_id, $user)
 {
 	$name = $_FILES['user']['name'];
 	$tmpLoc = $_FILES['user']['tmp_name'];
@@ -73,7 +76,7 @@ function uploadUserImage($over_id)
 			exit;
 		$new = overlayImg($img, getOverlay($over_id));
 		if (imagepng($new, $path) != false);
-			addImageDb($path, $newName);
+			addImageDb($path, $newName, $user);
 	}
    	else
 	{
@@ -83,7 +86,7 @@ function uploadUserImage($over_id)
 	
 }
 
-function uploadWebcamImage($over_id)
+function uploadWebcamImage($over_id, $user)
 {
 	$name = $_FILES['webcam']['name'];
 	$tmpLoc = $_FILES['webcam']['tmp_name'];
@@ -105,7 +108,7 @@ function uploadWebcamImage($over_id)
 		$new = overlayImg($dest, $over);
 		imagepng($new, $path);
 		if (imagepng($new, $path) != false);
-			addImageDb($path, $newName);
+			addImageDb($path, $newName, $user);
 	}
    	else
 	{
@@ -113,6 +116,11 @@ function uploadWebcamImage($over_id)
 		exit;
 	}
 }
+
+	session_start();
+	$user = $_SESSION['logged_on_user'];	
+	if ($_SESSION['logged_on_user'] == "")
+		exit;
 	$over = $_POST['overlay'];
 	file_put_contents("log.txt", "overlay " . $over);
 	if (file_exists('../images') == false)
@@ -122,11 +130,11 @@ function uploadWebcamImage($over_id)
 	}
 	if (isset($_FILES['user']))
 	{
-		uploadUserImage($over);	
+		uploadUserImage($over, $user);	
 	}
 	else if (isset($_FILES['webcam']))
 	{
-		uploadWebcamImage($over);
+		uploadWebcamImage($over, $user);
 	}
 	else
 	{

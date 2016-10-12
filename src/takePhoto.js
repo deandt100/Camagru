@@ -1,6 +1,5 @@
 
 var canvas = document.querySelector("canvas");
-var image = document.querySelector("#userImg");
 var video = document.querySelector("#videoElement");
 var ctx = canvas.getContext('2d');
 var localMediaStream = null;
@@ -44,17 +43,17 @@ function snapshot()
 {
   if (localMediaStream)
   {
-    var w = video.offsetWidth;
-    var h = w / 1.333333333333;
-    canvas.width = w;
-    canvas.height = h;
-    ctx.drawImage(video, 0, 0, w, h);
-    document.getElementById( 'upload_status' ).innerHTML = '<h1>Uploading...</h1>';
-    var dataURL = canvas.toDataURL('image/png')
-    image.src = dataURL;
-    var blob = dataURItoBlob(dataURL);
-    uploadFile(blob,"webcam", null);
-  }
+        var w = video.offsetWidth;
+        var h = w / 1.333333333333;
+        canvas.width = w;
+        canvas.height = h;
+        ctx.drawImage(video, 0, 0, w, h);
+        document.getElementById( 'upload_status' ).innerHTML = '<h1>Uploading...</h1>';
+        var dataURL = canvas.toDataURL('image/png');
+        var blob = dataURItoBlob(dataURL);
+        uploadFile(blob,"webcam", null);
+    }
+    location.reload();
 }
 
 video.addEventListener('click', snapshot, false);

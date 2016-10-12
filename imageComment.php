@@ -22,7 +22,15 @@
 					<div class="image_container">
 					<?php
 						include "config/connect.php";
-
+						session_start();
+						$user = $_SESSION['logged_on_user'];	
+						if ($_SESSION['logged_on_user'] == "")
+							exit;
+						if ($_SESSION['fs'])
+						{
+							$_SESSION['fs'] = !$_SESSION['fs'];
+							header('Location: imageComment.php');
+						}
 						$pdo = connect();
 						$id = $_GET['id'];
 						$sql = $pdo->query("USE db_camagru");

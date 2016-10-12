@@ -1,7 +1,7 @@
 <?php
 	include "../config/connect.php";
 
-	function addImageDb($path, $name)
+	function addImageDb($path, $name, $user)
 	{
 		$pdo = connect();
 		
@@ -15,7 +15,6 @@
 		$stmt->bindParam(':image_url',$path);
 		$date = date('Y-m-d H:i:s', time());
 		$stmt->bindParam(':date_created', $date);
-		$user = "test";
 		$stmt->bindParam(':user', $user);
 		echo print_r($stmt);
 		$stmt->execute();

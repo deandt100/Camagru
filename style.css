@@ -124,9 +124,9 @@ footer {
 	margin: 15px; /* Padding for content */
 	margin-top: 0;
 }
-
 		
-p {
+p 
+{
 	color: #444;
 }
 	
@@ -241,6 +241,12 @@ ul.topnav li.icon {display: none;}
 	position:absolute;
 	bottom:0;
 	box-shadow: 1px 1px 1px #888888;
+}
+
+.fs_img
+{
+	list-style-type : none;
+	width: 100%;
 }
 
 .tooltxt

@@ -47,7 +47,6 @@
 						</div>
 			</main>	
 		</div>
-		
 		<footer>
 			<div class="innertube">
 				<p>Footer...</p>
