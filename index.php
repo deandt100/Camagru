@@ -41,18 +41,10 @@
 
 						<h1>Gallery</h1>
 							<div class="container">
-								<ul class=hoverbox>
-									<li>
-										<img src="images/img1.jpeg" alt="description" class="preview" /></a>
-									</li>
-									<li>
-										<img src="images/img2.png" alt="description" class="preview" /></a>
-									</li>
-									<li>
-										<img src="images/img2.png" alt="description" class="preview" /></a>
-									</li>
-								</ul>
-				</div>
+								<?php
+									include "src/getImages.php";
+								?>
+						</div>
 			</main>	
 		</div>
 		

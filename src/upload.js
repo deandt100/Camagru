@@ -10,12 +10,12 @@ function userUpload()
 
 function uploadFile(file, key, name)
 {
-	//var file = _("image1").files[0];
 	var	formdata = new FormData('image_upload_form');
 	if (name)
 		formdata.append(key, file, name);
 	else
 		formdata.append(key, file);
+	formdata.append("overlay", activeOverlay);
 	var ajax = new XMLHttpRequest();
 	ajax.upload.addEventListener("progress", progressHandler, false);
 	ajax.addEventListener("load", completeHandler, false);

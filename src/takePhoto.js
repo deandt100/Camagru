@@ -4,6 +4,31 @@ var image = document.querySelector("#userImg");
 var video = document.querySelector("#videoElement");
 var ctx = canvas.getContext('2d');
 var localMediaStream = null;
+var activeOverlay = 1;
+var activeOverlayElem;
+
+document.querySelector("#ovr2").style.backgroundColor =  "rgba(54,70,93, .2)";
+document.querySelector("#ovr1").style.backgroundColor =  "#444";
+
+function    setActiveOverlay(image)
+{
+    if (image <= 2 && image > 0)
+    {
+        activeOverlay = image;
+        console.log("image : ", activeOverlay)
+        switch (activeOverlay) 
+        {
+			case 2:   
+        	    document.querySelector("#ovr2").style.backgroundColor = "#444";
+				document.querySelector("#ovr1").style.backgroundColor = "rgba(54,70,93, .2)";
+				break;
+			default:
+				document.querySelector("#ovr1").style.backgroundColor = "#444";
+				document.querySelector("#ovr2").style.backgroundColor = "rgba(54,70,93, .2)";
+          break;
+        }
+    }
+}
 
 function dataURItoBlob(dataURI) 
 {
@@ -29,7 +54,6 @@ function snapshot()
     image.src = dataURL;
     var blob = dataURItoBlob(dataURL);
     uploadFile(blob,"webcam", null);
-    console.log("Taking snap");
   }
 }
 

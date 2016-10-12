@@ -7,6 +7,28 @@ body
 	background: #ddd;
 }
 
+.overlay_select
+{
+	width: 100%;
+}
+
+.overlay_li
+{
+	width: 100%;
+	
+}
+
+.overlay_img
+{
+	width : 80%;
+}
+
+.overlay_li:hover
+{
+	background-color: rgba(54,70,93, .4);
+	box-shadow: 1px 1px 1px #888888;
+}
+
 .upload
 {
 	float: left;
@@ -79,6 +101,7 @@ footer {
 {
     width: 100%;
 	height: 75%;
+	box-shadow: 1px 1px 1px #888888;
 }
 
 #wrapper {
@@ -113,17 +136,19 @@ nav ul {
 	padding: 0;
 }
 
-.active {
-background-color:#666;
+.active 
+{
+	background-color:#666;
 }
 
-nav ul a {
+nav ul a
+ {
 	color: darkgreen;
 	text-decoration: none;
 }
 
-/* Remove margins and padding from the list, and add a black background color */
-ul.topnav {
+ul.topnav 
+{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -132,11 +157,13 @@ ul.topnav {
 	box-shadow: 1px 1px 1px #888888;
 }
 
-/* Float the list items side by side */
-ul.topnav li {float: left;}
+ul.topnav li 
+{
+	float: left;
+}
 
-/* Style the links inside the list items */
-ul.topnav li a {
+ul.topnav li a 
+{
     display: inline-block;
     color: #f2f2f2;
     text-align: center;
@@ -146,10 +173,8 @@ ul.topnav li a {
     font-size: 17px;
 }
 
-/* Change background color of links on hover */
 ul.topnav li a:hover {background-color: #444;}
 
-/* Hide the list item that contains the link that should open and close the topnav on small screens */
 ul.topnav li.icon {display: none;}
 
 #videoElement {
@@ -168,6 +193,47 @@ ul.topnav li.icon {display: none;}
     width: 66%;
     height: 66%;
 	text-align: center;
+}
+
+.comment_head
+{
+	position: relative;
+	color : #f2f2f2;
+	text-align: center;
+}
+
+.image_container
+{
+	position: relative;
+	margin-left: 17%;
+    width: 66%;
+    height: 66%;
+	text-align: center;
+}
+
+.comment_box
+{
+	position: absolute;
+	margin-left: 17%;
+	margin-top : 1%;
+    width: 66%;
+    background-color: rgba(54,70,93, .9);
+	border-style:none;
+	border-width:2px;
+	box-shadow: 1px 1px 1px #888888;
+}
+
+.comment
+{
+	position: relative;
+	padding-bottom: 1%;
+	margin-left: 2.5%;
+	margin-top : 1%;
+    width: 95%;
+    background-color: rgba(200,200,200 ,1);
+	border-style:none;
+	border-width:2px;
+	box-shadow: 1px 1px 1px #888888;
 }
 
 .upload_status

@@ -14,8 +14,6 @@
 			<li><a href="index.php">Home</a></li>
 			<li class="active"><a href="photoBooth.php">Photo Booth</a></li>
   			<li style="float:right"><a href="loginForm.php">Login</a></li>
-  			<li class="icon">
-  		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 		</ul>
 		</header>
@@ -48,30 +46,13 @@
 					</div>
 			<nav class="navright">
 				<div class="innertube">
-					<h3>Right heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-					<h3>Right heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-					<h3>Right heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
+					<h3>Select overlay</h3>
+						<div>
+						<ul class="overlay_select" id="overlay_select">
+							<li id="ovr1" class="overlay_li" onclick="setActiveOverlay(1)" ><img class="overlay_img" id="pine_tree" src="overlay/pine_tree.png"></li>
+							<li id="ovr2" class="overlay_li" onclick="setActiveOverlay(2)"><img class="overlay_img" id="peepo" src="overlay/peepo.png"></li>
+						</ul>
+						</div>
 				</div>
 			</nav>
 			
@@ -84,6 +65,6 @@
 			</div>
 		</footer>
 		<script type="text/javascript" src="src/takePhoto.js"></script>
-		<script type="text/javascript" src="src/upload.js"></script>	
+		<script type="text/javascript" src="src/upload.js"></script>
 	</body>
 </html>
