@@ -22,15 +22,7 @@
 					<div class="image_container">
 					<?php
 						include "config/connect.php";
-						session_start();
-						$user = $_SESSION['logged_on_user'];	
-						if ($_SESSION['logged_on_user'] == "")
-							exit;
-						if ($_SESSION['fs'])
-						{
-							$_SESSION['fs'] = !$_SESSION['fs'];
-							header('Location: imageComment.php');
-						}
+
 						$pdo = connect();
 						$id = $_GET['id'];
 						$sql = $pdo->query("USE db_camagru");
@@ -50,34 +42,42 @@
 					?>
 					<br>
 					</div>
+					<form id="commentForm" name="commentForm" action="src/submitComment.php" method="POST">
 
+    				<textarea name="comment" cols="100" rows="10"></textarea>
+					<?php
+						session_start();
+
+						echo '<input type="hidden" name = "image_id" value="' . $_GET["id"] . '">';
+						echo '<input type="hidden" name = "user" value="' . $_SESSION["logged_on_user"] . '">';
+					?>
+  				  	<button type="button" onclick="submitCommentForm()">Submit</button>
+					</form>
+					<script type="text/javascript" src="src/commentSubmit.js"></script>
 					<div class="comment_box">
 						<div class="comment_head">
 							<h1  >Comments </h1>
 						</div>
-						<div class="comment">
-							THE ACTUAL COMMENT
-						</div>
-						<div class="comment">
-							THE ACTUAL COMMENT
-						</div>
-						<div class="comment">
-							THE ACTUAL COMMENT
-						</div>
 						<br>
 						<?php
-							//include "config/connect.php";
+							include "../config/connect.php";
+							
+							$pdo = connect();
+							$pdo->query("USE db_camagru");
+							$stmt = $pdo->prepare("SELECT comment, user, date_posted FROM comments WHERE image_id = :image ORDER BY date_posted");
+							$stmt->bindParam(":image", $_GET["id"]);
+							$stmt->execute();
+							while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+							{
+								echo '<div class="comment">' . $row["comment"] . ' - ' . $row["user"] . '</div><br>';
+							}
+							$pdo = null;
 						?>
+						<br>
 					</div>
 					
 			
 		
 		</div>
-		
-		<footer>
-			<div class="innertube">
-				<p>Footer...</p>
-			</div>
-		</footer>
 	</body>
 </html>
