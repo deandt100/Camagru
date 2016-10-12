@@ -31,7 +31,7 @@
     <input oninput="chkPasswordStrength()" id="password" type="password" placeholder="Enter Password" name="psw" required>
 
 	 <label><b>Confirm Password</b></label>
-    <input id="confpassword" type="password" placeholder="Enter Password" name="psw" required>
+    <input id="confpassword" type="password" placeholder="Enter Password" name="confpsw" required>
     <label class="badInput" id="message"><b></b></label>
     <button onclick ="verifyDetails()" type="button">Register</button>
   </div>

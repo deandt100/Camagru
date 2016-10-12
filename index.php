@@ -16,9 +16,21 @@
 			</div> -->
 		<ul class="topnav" id="myTopnav">
 			<li class="active"><a href="index.php">Home</a></li>
-			<li><a href="photoBooth.php">Photo Booth</a></li>
-			<li style="float:right"><a href="registerForm.php">Register</a></li>
-  			<li style="float:right"><a href="loginForm.php">Login</a></li>
+			<?php
+				session_start();
+				if ($_SESSION["logged_on_user"] != "")
+					echo '<li><a href="photoBooth.php">Photo Booth</a></li>';
+				else
+				{
+					echo '<li style="float:right"><a href="registerForm.php">Register</a></li>';
+  					echo '<li style="float:right"><a href="loginForm.php">Login</a></li>';
+				}
+				if ($_SESSION["logged_on_user"] != "")
+				{
+					echo '<li style="float:right"><a href="src/logout.php">Logout</a></li>';
+					echo '<li style="float:right"><a href="changePass.php?verif=' . hash("whirlpool", $_SESSION["logged_on_user"]) . '">Change Password</a></li>';
+				}
+			?>
   			<li class="icon">
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>

@@ -13,22 +13,13 @@
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 </ul>
-<form id="loginForm" name="loginForm" action="src/login.php" method="POST">
+<form id="resetForm" name="resetForm" action="src/sendPasswordEmail.php" method="POST">
  
   <div class="container">
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="button" onclick="submitLoginForm()">Login</button>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw"><a href="changePassword.php"> Forgot password</a> </span>
+	 <button type="button" onclick="submitResetForm()">Change Password</button>
   </div>
 </form>
-<script type="text/javascript" src="src/login.js"></script>
+<script type="text/javascript" src="src/sendPasswordEmail.js"></script>
 </html>

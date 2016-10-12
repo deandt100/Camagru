@@ -1,7 +1,7 @@
 <html>
 <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Login</title>
+		<title>Change Password</title>
 		<link rel="Stylesheet" type="text/css" href="form_style.css">
     <link rel="Stylesheet" type="text/css" href="style.css">
 		<style type="text/css"></style>
@@ -13,22 +13,20 @@
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 </ul>
-<form id="loginForm" name="loginForm" action="src/login.php" method="POST">
+<form id="changeForm" name="changeForm" action="src/changeUserPassword.php" method="POST">
  
   <div class="container">
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label><b>Password</b></label>
+    <label><b>New Password</b></label>
+		<?php
+			echo '<input type="hidden" name="user" value=' . $_GET["verif"] . '>';
+		?>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="button" onclick="submitLoginForm()">Login</button>
-  </div>
+    <label><b>Confirm New Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="confpsw" required>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw"><a href="changePassword.php"> Forgot password</a> </span>
+    <button type="button" onclick="submitChangeForm()">Change Password</button>
   </div>
 </form>
-<script type="text/javascript" src="src/login.js"></script>
+<script type="text/javascript" src="src/changeUserPassword.js"></script>
 </html>

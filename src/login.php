@@ -1,6 +1,7 @@
 <?php
 	include "../config/connect.php";
 
+	session_start();
 	$pdo = connect();
 	$pdo->query("USE db_camagru");
 	$stmt = $pdo->prepare("SELECT username, password, verified FROM users WHERE username = :username");
@@ -22,7 +23,7 @@
 		header("Location: ../loginForm.php?error=3");
 		return ;
 	}
-	$_SESSION["logged_on_user"] = $_POST["username"];
+	$_SESSION["logged_on_user"] = $_POST["uname"];
 	header("Location: ../index.php");
 	return ;
 ?>
