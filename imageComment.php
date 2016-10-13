@@ -14,7 +14,12 @@
 		<ul class="topnav" id="myTopnav">
 			<li><a href="index.php">Home</a></li>
 			<li class="active"><a href="photoBooth.php">Photo Booth</a></li>
-  			<li style="float:right"><a href="loginForm.php">Login</a></li>
+			<?php
+				session_start();
+
+				if ($_SESSION["logged_on_user"] != "")
+  					echo '<li style="float:right"><a href="src/logout.php">Logout</a></li>';
+			?>
   			</li>
 		</ul>
 		</header>
