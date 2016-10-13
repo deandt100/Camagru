@@ -17,5 +17,6 @@
 	echo "HERE";
 	shell_exec("rm -f ../images/" . $_POST["image_id"]);
 	header("Location: ../index.php");
+	$pdo = null;
 	return ;
 ?>

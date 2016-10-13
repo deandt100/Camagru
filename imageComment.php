@@ -68,10 +68,21 @@
 					<form id="commentForm" name="commentForm" action="src/submitComment.php" method="POST">
     				<textarea name="comment" cols="100" rows="10"></textarea>
 					<?php
+						include "../config/connect.php";
 						session_start();
-
+						
+						$pdo = connect();
+						$id = $_GET['id'];
+						$pdo->query("USE db_camagru");
+						$stmt = $pdo->prepare("SELECT user FROM images 
+							WHERE image_id = '" . $id . "'");
+						$stmt->execute();
+						$row = $stmt->fetch(PDO::FETCH_ASSOC);
 						echo '<input type="hidden" name = "image_id" value="' . $_GET["id"] . '">';
 						echo '<input type="hidden" name = "user" value="' . $_SESSION["logged_on_user"] . '">';
+						echo '<input type="hidden" name = "image_user" value="' . $row["user"] . '">';
+						echo '<input type="hidden" name = "url" value="' . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $uri . '">';
+						$pdo = null;
 					?>
   				  	<button type="button" onclick="submitCommentForm()">Submit</button>
 					</form>
