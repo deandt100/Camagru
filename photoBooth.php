@@ -52,6 +52,7 @@
 						<ul class="overlay_select" id="overlay_select">
 							<li id="ovr1" class="overlay_li" onclick="setActiveOverlay(1)" ><img class="overlay_img" id="pine_tree" src="overlay/pine_tree.png"></li>
 							<li id="ovr2" class="overlay_li" onclick="setActiveOverlay(2)"><img class="overlay_img" id="peepo" src="overlay/peepo.png"></li>
+							<li id="ovr3" class="overlay_li" onclick="setActiveOverlay(3)"><img class="overlay_img" id="zeal" src="overlay/zeal.png"></li>
 						</ul>
 						</div>
 				</div>

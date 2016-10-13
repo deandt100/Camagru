@@ -11,7 +11,7 @@ document.querySelector("#ovr1").style.backgroundColor =  "#444";
 
 function    setActiveOverlay(image)
 {
-    if (image <= 2 && image > 0)
+    if (image <= 3 && image > 0)
     {
         activeOverlay = image;
         console.log("image : ", activeOverlay)
@@ -20,10 +20,17 @@ function    setActiveOverlay(image)
 			case 2:   
         	    document.querySelector("#ovr2").style.backgroundColor = "#444";
 				document.querySelector("#ovr1").style.backgroundColor = "rgba(54,70,93, .2)";
+                document.querySelector("#ovr3").style.backgroundColor = "rgba(54,70,93, .2)";
+				break;
+            case 3:   
+        	    document.querySelector("#ovr3").style.backgroundColor = "#444";
+                document.querySelector("#ovr1").style.backgroundColor = "rgba(54,70,93, .2)";
+				document.querySelector("#ovr2").style.backgroundColor = "rgba(54,70,93, .2)";
 				break;
 			default:
 				document.querySelector("#ovr1").style.backgroundColor = "#444";
 				document.querySelector("#ovr2").style.backgroundColor = "rgba(54,70,93, .2)";
+                document.querySelector("#ovr3").style.backgroundColor = "rgba(54,70,93, .2)";
           break;
         }
     }

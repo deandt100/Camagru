@@ -26,6 +26,7 @@
 						$pdo = connect();
 						session_start();
 						$id = $_GET['id'];
+						$user = $_SESSION['logged_on_user'];
 						$sql = $pdo->query("USE db_camagru");
 						$stmt = $pdo->prepare("SELECT image_url FROM images 
 							WHERE image_id = '" . $id . "'");
@@ -51,7 +52,31 @@
 							echo '<input type="submit" name="submit" value="delete">';
 							echo '</form>';
 						}
+						$stmt = $pdo->prepare("SELECT like_id FROM likes
+							WHERE user = :user AND image_id = :image_id");
+						$stmt->bindParam(':user', $user);
+						$stmt->bindParam(':image_id', $id);
+						$stmt->execute();
+						$likes = $stmt->fetchAll(PDO::FETCH_COLUMN);
+						echo "likes = " . count($likes);
+						if (count($likes) > 0)
+						{
+							$likeClass = "liked";
+						}
+						else
+							$likeClass = "unliked";
+						
+						echo '<form class = "' . $likeClass . '" id="likeButton" name="likeButton" action="src/likeImage.php" method="POST">';
+						echo '<input type="hidden" name="image_id" value="' . $_GET["id"] . '">';
+						echo '<input type="submit" name="submit" value="like">';
+						echo '</form>';
 					?>
+					<!-- 
+					<form id="likeButton" name="likeButton" action="src/likeImage.php" method="POST">
+						<input type="hidden" name="image_id" value="<?php echo $_GET["id"] ?>">
+						<input type="submit" name="submit" value="like">
+					</form>
+					-->
 					<br>
 					</div>
 					<div class="comment_box">

@@ -283,6 +283,16 @@ h1
 	color: #555;
 }
 
+.liked
+{
+	background-color:#008CBA; 
+}
+
+.unliked
+{
+	background-color: #f2f2f2; 
+}
+
 .tooltxt
 {
 	float: left;

@@ -45,6 +45,16 @@
 		die ("Error: comments table could not be created\n");
 	echo "comments table created\n";
 
+	$query = "CREATE TABLE `likes` (
+		like_id VARCHAR( 24 ) NOT NULL PRIMARY KEY,
+		image_id VARCHAR( 24 ) NOT NULL,
+		user VARCHAR( 24 ) NOT NULL
+		)";
+	$sql_query = $pdo->query($query);
+	if (!$sql_query)
+		die ("Error: comments table could not be created\n");
+	echo "likes table created\n";
+
 	//Create directories
 	shell_exec("rm -rf ../images");
 	mkdir("../images", 0777);
