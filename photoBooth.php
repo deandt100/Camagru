@@ -13,7 +13,7 @@
 		<ul class="topnav" id="myTopnav">
 			<li><a href="index.php">Home</a></li>
 			<li class="active"><a href="photoBooth.php">Photo Booth</a></li>
-  			<li style="float:right"><a href="loginForm.php">Login</a></li>
+			  <li style="float:right"><a href="src/logout.php">Logout</a></li>
   			</li>
 		</ul>
 		</header>
@@ -57,10 +57,7 @@
 						</div>
 				</div>
 			</nav>
-			
-		
 		</div>
-		
 		<footer>
 			<div class="innertube">
 				<p>Footer...</p>
