@@ -53,7 +53,6 @@ function verifyDetails()
       else
         confemail.style.borderColor = "#5c5";
 
-      //password
       var passwd = document.getElementById("password");
       if (passwd.value.length < 6)
       {
@@ -109,17 +108,12 @@ function verifyDetails()
      var txtpass = pass.value;
      var errMsg;
 
-     //if txtpass bigger than 6 give 1 point
     if (txtpass.length >= 6) 
     {
       score++;
-     //if txtpass has both lower and uppercase characters give 1 point
      if ( ( txtpass.match(/[a-z]/) ) && ( txtpass.match(/[A-Z]/) ) ) score++;
-     //if txtpass has at least one number give 1 point
      if (txtpass.match(/\d+/)) score++;
-     //if txtpass has at least one special caracther give 1 point
      if ( txtpass.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) ) score++;
-     //if txtpass bigger than 12 give another 1 point
      if (txtpass.length > 12) score++;
      pstring.innerHTML = "strength " + desc[score];
      pstring.className = "strength" + score;

@@ -140,7 +140,11 @@
 						?>
 						<br>
 					</div>
-					
+		<footer>
+			<div class="innertube">
+				<p style="float:right">daviwel, ddu-toit 2016</p>
+			</div>
+		</footer>	
 			
 		
 		</div>
