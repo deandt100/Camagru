@@ -1,20 +1,14 @@
 <?php
 include "addImageDb.php";
 
-
-
-	// Add user auth!
-
 function getImageName()
 {
 	$name = uniqid("IMG-") . ".png";
-	//Add SQL stuff
 	return $name;
 }
 
 function getOverlay($over_id)
 {
-	file_put_contents("log.txt", "overlay " . $over_id);
 	switch (intval($over_id))
 	{
 		case 1 :
@@ -122,7 +116,6 @@ function uploadWebcamImage($over_id, $user)
 	if ($_SESSION['logged_on_user'] == "")
 		exit;
 	$over = $_POST['overlay'];
-	file_put_contents("log.txt", "overlay " . $over);
 	if (file_exists('../images') == false)
 	{
 		echo "Directory not made, creating";

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Template by quackit.com -->
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,9 +10,6 @@
 	</head>
 	<body>		
 		<header>
-<!--	<div class="innertube">
-				<h1>Site name</h1>
-			</div> -->
 		<ul class="topnav" id="myTopnav">
 			<li class="active"><a href="index.php">Home</a></li>
 			<?php
@@ -38,8 +34,11 @@
 		</header>
 		<div id="wrapper">
 			<main style="width:100%">
-
+						<center>
 						<h1>Gallery</h1>
+
+						</center>
+						<p class='index'> Page index : </p>
 							<div class="container">
 								<?php
 									include "src/getImages.php";

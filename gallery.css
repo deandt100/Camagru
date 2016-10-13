@@ -1,17 +1,20 @@
-.container {
+.container 
+{
 	width: 100%;
 	margin: 30px auto;
 	overflow: hidden;
 }
 
-.galleryItem {
+.galleryItem 
+{
 	margin : 4px 4px 4px 4px;
 	background-color : rgb(40, 40, 40);
 	font: 10px/1.5 Verdana, Helvetica, sans-serif;
 	float: left;
 }
 
-.galleryItem img {
+.galleryItem img 
+{
 	max-width: 100%;
 }
 
@@ -21,7 +24,7 @@
 	list-style: none;
 }
 
-.hoverbox img
+.hoverbox_img
 {
 	background: #fff;
 	border-color: #aaa #ccc #ddd #bbb;
@@ -29,8 +32,8 @@
 	color: inherit;
 	padding: 2px;
 	vertical-align: top;
-	width: 100px;
-	height: 75px;
+	width: 99%;
+	height: 99%;
 }
 
 .hoverbox li

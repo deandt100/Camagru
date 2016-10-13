@@ -10,10 +10,10 @@
 		}
 		catch (PDOException $e)
 		{
-			echo "Error: " . $e->getMessage();
+			print "Error: " . $e->getMessage();
 			die();
 		}
-		echo "Connected to database successfully\n";
+	//	print "Connected to database successfully\n";
 		return ($pdo);
 	}
 ?>

@@ -1,5 +1,5 @@
 <?php
-	function imageList($rel ,$urls, $id, $liClass)
+	function imageList($rel ,$urls, $id, $liClass, $imgClass)
 	{
 		echo "<ul class='hoverbox'>";
 		$count = count($id);
@@ -7,8 +7,9 @@
 		{
 			echo "
 			<li class='$liClass'>
-				<a href='" . $rel . "imageComment.php?id=" . $id[$i] .  "'><img src='" . $rel . $urls[$i] . "' alt='Image not Found'
-					class='" . $liClass . "'/></a>
+				<a href='" . $rel . "imageComment.php?id=" . $id[$i] 
+				.  "'><img src='" . $rel . $urls[$i] . "' alt='Image not Found'
+					class='" . $imgClass . "'/></a>
 			</li>";
 		}
 		echo "</ul>";
