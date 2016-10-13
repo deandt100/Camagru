@@ -18,7 +18,6 @@
 		</ul>
 		</header>
 		<div id="wrapper">
-			
 			<nav id="filmstrip" class="navleft" >
 				<div class="innertube">
 				<center>
@@ -30,6 +29,8 @@
 			</nav>
 					<div class="video_container">
    						<video autoplay="true" id="videoElement"></video><br>
+						   <input type="button" value="Take snapshot" onclick="snapshot()">
+						   <div id="upload_status">Click video feed take a snapshot! </div>
 						   <div class=upload>
 						   		<p>Image Upload</p>
 								<form id="image_upload_form" enctype="multipart/form-data" method="post">
@@ -42,8 +43,6 @@
 								<br>
 						   </div>
 						<canvas id="canvas" style="display:none;"></canvas>
-						   <div id="upload_status">Click video feed take a snapshot! </div>
-
 					</div>
 			<nav class="navright">
 				<div class="innertube">
@@ -60,7 +59,7 @@
 		</div>
 		<footer>
 			<div class="innertube">
-				<p>Footer...</p>
+				<p style="float:right">daviwel, ddu-toit 2016</p>
 			</div>
 		</footer>
 		<script type="text/javascript" src="src/takePhoto.js"></script>

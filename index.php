@@ -11,7 +11,6 @@
 	<body>		
 		<header>
 		<ul class="topnav" id="myTopnav">
-			<li class="active"><a href="index.php">Home</a></li>
 			<?php
 				session_start();
 				if ($_SESSION["logged_on_user"] != "")
@@ -48,7 +47,7 @@
 		</div>
 		<footer>
 			<div class="innertube">
-				<p>Footer...</p>
+				<p style="float:right">daviwel, ddu-toit 2016</p>
 			</div>
 		</footer>
 	

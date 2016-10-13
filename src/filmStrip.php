@@ -17,7 +17,5 @@
 	$stmt->execute();
 	$ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
 	$pdo = null;
-	$ids = array_slice($ids, 0, 10);
-	$urls = array_slice($urls, 0, 10);
 	imageList("", $urls, $ids, "fs_img", "filmstrip_img");
 ?>
