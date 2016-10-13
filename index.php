@@ -30,6 +30,10 @@
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 		</ul>
+		<?php
+			if ($_GET["success"] == 1)
+				echo '<p>Success, please check verification email</p>';
+		?>
 		</header>
 		<div id="wrapper">
 			<main style="width:100%">

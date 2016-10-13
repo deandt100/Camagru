@@ -10,12 +10,22 @@
 <body>
 <ul class="topnav" id="myTopnav">
 			<li><a href="index.php">Home</a></li>
-			<li><a href="photoBooth.php">Photo Booth</a></li>
-  			<li style="float:right"><a href="loginForm.php">Login</a></li>
   			<li class="icon">
   		  		<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   			</li>
 </ul>
+<?php
+    if ($_GET["error"] == 1)
+      echo '<p>Invalid username</p>';
+    else if ($_GET["error"] == 2)
+      echo '<p>Invalid email</p>';
+    else if ($_GET["error"] == 3)
+      echo '<p>Password does not match or password is too short</p>';
+    else if ($_GET["error"] == 4)
+      echo '<p>Username already in use</p>';
+    else if ($_GET["error"] == 5)
+      echo '<p>Email already in use</p>';
+?>
 <form id="regform" name="register" method="POST" action="src/registerUser.php">
   <div class="container">
     <label><b>Username</b></label>

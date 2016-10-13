@@ -20,7 +20,7 @@
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	$email = $row["email"];
 	$uri = substr($_SERVER["REQUEST_URI"], 0, strpos($_SERVER["REQUEST_URI"], '/', 1));
-	$link = '<a href="http://' . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $uri . "/changePass.php" . "?verif=" . hash("whirlpool", $username) . '">Click here to change your password</a>';
+	$link = '<a href="http://' . $_SERVER["SERVER_ADDR"] . ":" . $_SERVER["SERVER_PORT"] . $uri . "/changePass.php" . "?verif=" . hash("whirlpool", $username) . '">Click here to change your password</a>';
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	$msg = "<html>
