@@ -17,6 +17,9 @@ function getOverlay($over_id)
 		case 2 :
 			return imagecreatefrompng("../overlay/peepo.png");
 			break;
+		case 3 :
+			return imagecreatefrompng("../overlay/zeal.png");
+			break;
 		default :
 			return imagecreatefrompng("../overlay/pine_tree.png");
 	}
