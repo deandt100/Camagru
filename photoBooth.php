@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+	<?php
+		session_start();
+		if ($_SESSION['logged_on_user'] == "" || $_SESSION['logged_on_user'] == NULL);
+		{
+			echo "ERROR </html>";
+			header("Location: index.php");
+		}
+	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>PhotoBooth</title>
@@ -8,7 +16,6 @@
 		
 	</head>
 	<body>
-		
 		<header>
 		<ul class="topnav" id="myTopnav">
 			<li><a href="index.php">Home</a></li>

@@ -126,7 +126,7 @@
 						<br>
 						<?php
 							include "../config/connect.php";
-							
+
 							$pdo = connect();
 							$pdo->query("USE db_camagru");
 							$stmt = $pdo->prepare("SELECT comment, user, date_posted FROM comments WHERE image_id = :image ORDER BY date_posted");
