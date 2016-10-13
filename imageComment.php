@@ -71,10 +71,6 @@
 						echo '<input type="submit" name="submit" value="like">';
 						echo '</form>';
 					?>
-					<form id="likeButton" name="likeButton" action="src/likeImage.php" method="POST">
-						<input type="hidden" name="image_id" value="<?php echo $_GET["id"] ?>">
-						<input type="submit" name="submit" value="like">
-					</form>
 					<br>
 					</div>
 					<div class="comment_box">
