@@ -24,6 +24,7 @@
 						include "config/connect.php";
 
 						$pdo = connect();
+						session_start();
 						$id = $_GET['id'];
 						$sql = $pdo->query("USE db_camagru");
 						$stmt = $pdo->prepare("SELECT image_url FROM images 
@@ -33,17 +34,38 @@
 						if (count($url) != 1)
 						{
 							echo "ERROR\n";
-							//redirect
+							header("Location: index.php?error=3");
 						}
 						else
 						{
 							echo "<img id='userImg' src='" . $url[0] .  "'>";
 						}
+						$stmt = $pdo->prepare("SELECT user FROM images 
+							WHERE image_id = '" . $id . "'");
+						$stmt->execute();
+						$row = $stmt->fetch(PDO::FETCH_ASSOC);
+						if ($_SESSION["logged_on_user"] == $row["user"])
+						{
+							echo '<form id="deleteButton" name="deleteButton" action="src/deleteImage.php" method="POST">';
+							echo '<input type="hidden" name="image_id" value="' . $_GET["id"] . '">';
+							echo '<input type="submit" name="submit" value="delete">';
+							echo '</form>';
+						}
 					?>
 					<br>
 					</div>
+					<div class="comment_box">
+					<div class="comment">
+					<p>Image link:</p>
+					<?php
+						$uri = $_SERVER["REQUEST_URI"];
+						echo '<span id="copyText" style="background-color:green">' . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $uri . '</span>';
+					?>
+					</div>
+					</div>
+					<br>
+					<div class="comment_box">
 					<form id="commentForm" name="commentForm" action="src/submitComment.php" method="POST">
-
     				<textarea name="comment" cols="100" rows="10"></textarea>
 					<?php
 						session_start();
@@ -53,6 +75,7 @@
 					?>
   				  	<button type="button" onclick="submitCommentForm()">Submit</button>
 					</form>
+					</div>
 					<script type="text/javascript" src="src/commentSubmit.js"></script>
 					<div class="comment_box">
 						<div class="comment_head">
@@ -69,7 +92,7 @@
 							$stmt->execute();
 							while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 							{
-								echo '<div class="comment">' . $row["comment"] . ' - ' . $row["user"] . '</div><br>';
+								echo '<div class="comment">' . $row["comment"] . ' - ' . $row["user"] . ' - Posted on: ' . date("H:i d F Y", strtotime($row["date_posted"])) . '</div><br>';
 							}
 							$pdo = null;
 						?>

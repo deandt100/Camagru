@@ -213,7 +213,7 @@ ul.topnav li.icon {display: none;}
 
 .comment_box
 {
-	position: absolute;
+	position: relative;
 	margin-left: 17%;
 	margin-top : 1%;
     width: 66%;

@@ -2,6 +2,7 @@
 	include "../config/connect.php";
 
 	session_start();
+	date_default_timezone_set("Africa/Johannesburg");
 	if ($_SESSION["logged_on_user"] == "")
 	{
 		header("Location: ../imageComment.php?id=" . $_POST["image_id"] . "&error=1");

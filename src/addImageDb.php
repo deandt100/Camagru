@@ -5,6 +5,7 @@
 	{
 		$pdo = connect();
 		
+		date_default_timezone_set("Africa/Johannesburg");
 		$sql = $pdo->query("USE db_camagru");
 		echo "<br>name = $name path = $path";
 		print_r($sql);
