@@ -11,7 +11,9 @@ function userUpload()
 
 function uploadFile(file, key, name)
 {
-	var	formdata = new FormData('image_upload_form');
+	var formElem = document.querySelector("#image_upload_form");
+	var	formdata = new FormData(formElem);
+	console.log(formdata.toString());
 	if (name)
 		formdata.append(key, file, name);
 	else

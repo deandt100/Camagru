@@ -2,10 +2,9 @@
 <html>
 	<?php
 		session_start();
-		if ($_SESSION['logged_on_user'] == "" || $_SESSION['logged_on_user'] == NULL);
+		if ($_SESSION['logged_on_user'] == "");
 		{
-			echo "ERROR </html>";
-			header("Location: index.php");
+		//	header("Location: index.php");
 		}
 	?>
 	<head>
@@ -64,11 +63,9 @@
 				</div>
 			</nav>
 		</div>
-		<footer>
-			<div class="innertube">
+		<div class="foot">
 				<p style="float:right">daviwel, ddu-toit 2016</p>
 			</div>
-		</footer>
 		<script type="text/javascript" src="src/takePhoto.js"></script>
 		<script type="text/javascript" src="src/upload.js"></script>
 	</body>

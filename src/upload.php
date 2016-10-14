@@ -90,6 +90,7 @@ function uploadWebcamImage($over_id, $user)
 	$type = $_FILES['webcam']['type'];
 	$size = $_FILES['webcam']['size'];
 	$err = $_FILES['webcam']['error'];
+
 	if (empty($tmpLoc))
 	{
 		echo "ERROR: Server error uploading webcam image.";

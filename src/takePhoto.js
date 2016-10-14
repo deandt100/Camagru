@@ -46,6 +46,11 @@ function dataURItoBlob(dataURI)
     return new Blob([new Uint8Array(array)], {type: 'image/png'});
 }
 
+function rPage()
+{
+location.reload();
+}
+
 function snapshot()
 {
   if (localMediaStream)
@@ -57,10 +62,11 @@ function snapshot()
         ctx.drawImage(video, 0, 0, w, h);
         document.getElementById( 'upload_status' ).innerHTML = '<h1>Uploading...</h1>';
         var dataURL = canvas.toDataURL('image/png');
+        console.log("dataUrl = ", dataURL);
         var blob = dataURItoBlob(dataURL);
         uploadFile(blob,"webcam", null);
     }
-    location.reload();
+    setTimeout(rPage, 2000);
 }
 
 video.addEventListener('click', snapshot, false);
@@ -69,7 +75,8 @@ navigator.getUserMedia = navigator.getUserMedia
   || navigator.webkitGetUserMedia || navigator.mozGetUserMedia 
   || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
-if (navigator.getUserMedia) {
+if (navigator.getUserMedia) 
+{
     navigator.getUserMedia({video: true}, handleVideo, videoError);
 }
 
