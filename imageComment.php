@@ -23,6 +23,15 @@
   			</li>
 		</ul>
 		</header>
+		<?php
+			if ($_GET["error"] == 1)
+			{
+				header("Location: loginForm.php");
+				return ;
+			}
+			if ($_GET["error"] == 2)
+				echo '<p>Error: Comment cannot be longer than 256 characters</p>';
+		?>
 		<div id="wrapper">
 					<div class="image_container">
 					<?php
@@ -87,17 +96,30 @@
 					</div>
 					<div class="comment_box">
 					<div class="comment">
+					<?php
+						$pdo = connect();
+						$id = $_GET['id'];
+						date_default_timezone_set("Africa/Johannesburg");
+						$pdo->query("USE db_camagru");
+						$stmt = $pdo->prepare("SELECT user, date_created FROM images 
+							WHERE image_id = '" . $id . "'");
+						$stmt->execute();
+						$row = $stmt->fetch(PDO::FETCH_ASSOC);
+						echo '<p>Posted by: ' . $row["user"] . ' - ' . date("H:i d F Y", strtotime($row["date_created"])) . '</p>';
+						$pdo = null;
+					?>
 					<p>Image link:</p>
 					<?php
 						$uri = $_SERVER["REQUEST_URI"];
-						echo '<span id="copyText" style="background-color:green">' . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $uri . '</span>';
+						echo '<span id="copyText" style="background-color:green">' . $_SERVER["SERVER_ADDR"] . ":" . $_SERVER["SERVER_PORT"] . $uri . '</span>';
 					?>
 					</div>
 					</div>
 					<br>
 					<div class="comment_box">
 					<form id="commentForm" name="commentForm" action="src/submitComment.php" method="POST">
-    				<textarea name="comment" cols="100" rows="10"></textarea>
+					<center>
+    				<textarea name="comment" cols="100" rows="10"></textarea><br>
 					<?php
 						include "../config/connect.php";
 						session_start();
@@ -112,17 +134,18 @@
 						echo '<input type="hidden" name = "image_id" value="' . $_GET["id"] . '">';
 						echo '<input type="hidden" name = "user" value="' . $_SESSION["logged_on_user"] . '">';
 						echo '<input type="hidden" name = "image_user" value="' . $row["user"] . '">';
-						echo '<input type="hidden" name = "url" value="' . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $uri . '">';
+						echo '<input type="hidden" name = "url" value="' . $_SERVER["SERVER_ADDR"] . ":" . $_SERVER["SERVER_PORT"] . $uri . '">';
 						$pdo = null;
 					?>
   				  	<button type="button" onclick="submitCommentForm()">Submit</button>
+					</center>
 					</form>
 					</div>
 					<script type="text/javascript" src="src/commentSubmit.js"></script>
-					<div class="comment_box">
-						<div class="comment_head">
-							<h1  >Comments </h1>
+					<div class="comment_head">
+							<h1>Comments</h1>
 						</div>
+					<div class="comment_box">
 						<br>
 						<?php
 							include "../config/connect.php";
@@ -140,13 +163,9 @@
 						?>
 						<br>
 					</div>
-		<footer>
+				</div>
 			<div class="innertube">
 				<p style="float:right">daviwel, ddu-toit 2016</p>
-			</div>
-		</footer>	
-			
-		
-		</div>
+			</div>	
 	</body>
 </html>
