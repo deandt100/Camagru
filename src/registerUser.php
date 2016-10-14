@@ -25,7 +25,7 @@
 	if ($stmt->rowCount() > 0)
 	{
 		echo "Error";
-		header("Location: ../registerForm.php?error=1");
+		header("Location: ../registerForm.php?error=4");
 		return ;
 	}
 	$stmt = $pdo->prepare("SELECT email FROM users WHERE email = :email");
@@ -34,7 +34,7 @@
 	if ($stmt->rowCount() > 0)
 	{
 		echo "Error";
-		header("Location: ../registerForm.php?error=2");
+		header("Location: ../registerForm.php?error=5");
 		return ;
 	}
 	$stmt = $pdo->prepare("INSERT INTO users (username, password, email) VALUES (:name, :pass, :email)");
