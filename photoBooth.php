@@ -2,9 +2,9 @@
 <html>
 	<?php
 		session_start();
-		if ($_SESSION['logged_on_user'] == "");
+		if ($_SESSION['logged_on_user'] == "")
 		{
-		//	header("Location: index.php");
+			header("Location: index.php");
 		}
 	?>
 	<head>
