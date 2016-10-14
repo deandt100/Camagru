@@ -121,7 +121,8 @@
 					<script type="text/javascript" src="src/commentSubmit.js"></script>
 					<div class="comment_box">
 						<div class="comment_head">
-							<h1  >Comments </h1>
+							<br>
+							<h1>Comments </h1>
 						</div>
 						<br>
 						<?php
